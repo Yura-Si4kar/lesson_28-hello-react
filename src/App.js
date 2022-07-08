@@ -7,7 +7,6 @@ export default class App extends Component {
     this.state = {
       firstNumber: '',
       secondNumber: '',
-      showResult: 'true',
     };
   }
   render() {
@@ -16,7 +15,7 @@ export default class App extends Component {
       <input name='firstNumber' value={this.state.firstNumber} onChange={this.onFirstInputChange} />
       +
       <input name='secondNumber' value={this.state.secondNumber} onChange={this.onSecondInputChange} />
-      = {this.state.showResult ? <strong>{Number(this.state.firstNumber) + Number(this.state.secondNumber)}</strong> : ''}
+      = {<strong>{Number(this.state.firstNumber) + Number(this.state.secondNumber)}</strong>}
       <br />
     </div>;
   }
