@@ -10,13 +10,11 @@ export default class App extends Component {
     };
   }
   render() {
-    return <div class='code'>
-      <br />
+    return <div className='code'>
       <input name='firstNumber' value={this.state.firstNumber} onChange={this.onFirstInputChange} />
       +
       <input name='secondNumber' value={this.state.secondNumber} onChange={this.onSecondInputChange} />
       = {<strong>{Number(this.state.firstNumber) + Number(this.state.secondNumber)}</strong>}
-      <br />
     </div>;
   }
 
