@@ -11,17 +11,12 @@ export default class App extends Component {
     };
   }
   render() {
-    return <div>
+    return <div class='code'>
       <br />
       <input name='firstNumber' value={this.state.firstNumber} onChange={this.onFirstInputChange} />
-      <select>
-        <option name='action'>+</option>
-        <option name='action'>-</option>
-        <option name='action'>*</option>
-        <option name='action'>/</option>
-      </select>
+      +
       <input name='secondNumber' value={this.state.secondNumber} onChange={this.onSecondInputChange} />
-      = {this.state.showResult ? <strong>{Number(this.state.firstNumber)+Number(this.state.secondNumber)}</strong> : ''}
+      = {this.state.showResult ? <strong>{Number(this.state.firstNumber) + Number(this.state.secondNumber)}</strong> : ''}
       <br />
     </div>;
   }
