@@ -7,26 +7,43 @@ export default class App extends Component {
     this.state = {
       firstNumber: '',
       secondNumber: '',
+      action: '+',
     };
   }
   render() {
     return <div className='code'>
-      <input name='firstNumber' value={this.state.firstNumber} onChange={this.onFirstInputChange} />
-      +
-      <input name='secondNumber' value={this.state.secondNumber} onChange={this.onSecondInputChange} />
-      = {<strong>{Number(this.state.firstNumber) + Number(this.state.secondNumber)}</strong>}
+      <input name='firstNumber' value={this.state.firstNumber} onChange={this.onInputChange} />
+      <select name='action' onChange={this.onInputChange}>
+        <option value='+'>+</option>
+        <option value='-'>-</option>
+        <option value='*'>*</option>
+        <option value='/'>/</option>
+      </select>
+      <input name='secondNumber' value={this.state.secondNumber} onChange={this.onInputChange} />
+      = {<strong>{this.calculate(this.state.firstNumber,this.state.secondNumber,this.state.action)}</strong>}
     </div>;
   }
 
-  onFirstInputChange = (e) => {
+  onInputChange = (e) => {
     this.setState({
-      firstNumber: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
-  
-  onSecondInputChange = (e) => {
-    this.setState({
-      secondNumber: e.target.value,
-    });
+
+  calculate = (x, y, action) => {
+    if (isNaN(x) || isNaN(y)) {
+      return 'Wrong! Write numbers!';
+    }
+
+    switch (action) {
+      case "+":
+          return Number(x) + Number(y);
+      case "-":
+          return Number(x) - Number(y);
+      case "*":
+          return Number(x) * Number(y);
+      case "/":
+          return Number(x) / Number(y);
+    }
   }
 }
